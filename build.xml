@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="AtmosphereASCommons">
+    <import file="../common-build.xml"/>
+
+    <property name="dependency.projects" value=""/>
+</project>
