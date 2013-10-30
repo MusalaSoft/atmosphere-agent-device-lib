@@ -3,4 +3,7 @@
     <import file="../common-build.xml"/>
 
     <property name="dependency.projects" value=""/>
+
+    <target name="build-tests"/>
+    <target name="tests-jar"/>
 </project>
