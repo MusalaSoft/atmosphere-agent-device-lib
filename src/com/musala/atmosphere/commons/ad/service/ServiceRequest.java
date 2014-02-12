@@ -53,5 +53,10 @@ public enum ServiceRequest implements RequestType
 	/**
 	 * Sent to request the readings from the acceleration sensor of the device.
 	 */
-	GET_ACCELERATION_READINGS;
+	GET_ACCELERATION_READINGS,
+
+	/*
+	 * Sent to request the information telephony services on the device.
+	 */
+	GET_TELEPHONY_INFORMATION;
 }
