@@ -1,5 +1,6 @@
 package com.musala.atmosphere.commons.ad.service;
 
+import com.musala.atmosphere.commons.PowerProperties;
 import com.musala.atmosphere.commons.ad.RequestType;
 
 /**
@@ -16,19 +17,9 @@ public enum ServiceRequest implements RequestType
 	VALIDATION,
 
 	/**
-	 * Used to request information about the battery state of the device.
+	 * Used to request a {@link PowerProperties} data container, describing the device power environment.
 	 */
-	GET_BATTERY_STATE,
-
-	/**
-	 * Used to request information about the battery level of the device.
-	 */
-	GET_BATTERY_LEVEL,
-
-	/**
-	 * Used to request information about the power state of the device.
-	 */
-	GET_POWER_STATE,
+	GET_POWER_PROPERTIES,
 
 	/**
 	 * Used to request setting On the WiFi state of the device.
