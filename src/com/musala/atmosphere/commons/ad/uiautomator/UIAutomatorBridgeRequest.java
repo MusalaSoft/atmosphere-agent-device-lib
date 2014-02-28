@@ -9,20 +9,23 @@ import com.musala.atmosphere.commons.gesture.Timeline;
  * @author yordan.petrov
  * 
  */
-public enum UIAutomatorBridgeRequest implements RequestType
-{
-	/**
-	 * Used in order to validate the bridge. The bridge should return this object back as a response.
-	 */
-	VALIDATION,
+public enum UIAutomatorBridgeRequest implements RequestType {
+    /**
+     * Used in order to validate the bridge. The bridge should return this object back as a response.
+     */
+    VALIDATION,
 
-	/**
-	 * Returned by the bridge when the the request does not require a particular response.
-	 */
-	ANY_RESPONSE,
+    /**
+     * Returned by the bridge when the the request does not require a particular response.
+     */
+    ANY_RESPONSE,
 
-	/**
-	 * Plays the gesture, described in the passed {@link Timeline} list.
-	 */
-	PLAY_GESTURE;
+    /**
+     * Plays the gesture, described in the passed {@link Timeline} list.
+     */
+    PLAY_GESTURE,
+    /**
+     * Used for UI element clearing.
+     */
+    CLEAR_FIELD;
 }
