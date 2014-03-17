@@ -14,83 +14,75 @@ import java.net.Socket;
  * @author georgi.gaydarov
  * 
  */
-class SocketObjectServer
-{
-	private final ServerSocket serverSocket;
+class SocketObjectServer {
+    private final ServerSocket serverSocket;
 
-	private InputStream socketInputStream;
+    private InputStream socketInputStream;
 
-	private OutputStream socketOutputStream;
+    private OutputStream socketOutputStream;
 
-	/**
-	 * Starts a new server on a specified port.
-	 * 
-	 * @param onPort
-	 *        - the port on which the server will listen.
-	 * @throws IOException
-	 */
-	public SocketObjectServer(int onPort) throws IOException
-	{
-		serverSocket = new ServerSocket(onPort);
-	}
+    /**
+     * Starts a new server on a specified port.
+     * 
+     * @param onPort
+     *        - the port on which the server will listen.
+     * @throws IOException
+     */
+    public SocketObjectServer(int onPort) throws IOException {
+        serverSocket = new ServerSocket(onPort);
+    }
 
-	/**
-	 * Blocks until a connection from a client is established.
-	 * 
-	 * @throws IOException
-	 */
-	public void acceptConnection() throws IOException
-	{
-		Socket socket = serverSocket.accept();
-		socketInputStream = socket.getInputStream();
-		socketOutputStream = socket.getOutputStream();
-	}
+    /**
+     * Blocks until a connection from a client is established.
+     * 
+     * @throws IOException
+     */
+    public void acceptConnection() throws IOException {
+        Socket socket = serverSocket.accept();
+        socketInputStream = socket.getInputStream();
+        socketOutputStream = socket.getOutputStream();
+    }
 
-	/**
-	 * Fetches the next object that the client sends.
-	 * 
-	 * @return the fetched object.
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
-	protected Object receiveObject() throws IOException, ClassNotFoundException
-	{
-		ObjectInputStream objectIn = new ObjectInputStream(socketInputStream);
-		Object result = objectIn.readObject();
-		return result;
-	}
+    /**
+     * Fetches the next object that the client sends.
+     * 
+     * @return the fetched object.
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    protected Object receiveObject() throws IOException, ClassNotFoundException {
+        ObjectInputStream objectIn = new ObjectInputStream(socketInputStream);
+        Object result = objectIn.readObject();
+        return result;
+    }
 
-	/**
-	 * Sends an object to the client.
-	 * 
-	 * @param toSend
-	 *        - the object to be sent.
-	 * @throws IOException
-	 */
-	protected void sendObject(Object toSend) throws IOException
-	{
-		ObjectOutputStream objectOut = new ObjectOutputStream(socketOutputStream);
-		objectOut.flush();
-		objectOut.writeObject(toSend);
-		objectOut.flush();
-	}
+    /**
+     * Sends an object to the client.
+     * 
+     * @param toSend
+     *        - the object to be sent.
+     * @throws IOException
+     */
+    protected void sendObject(Object toSend) throws IOException {
+        ObjectOutputStream objectOut = new ObjectOutputStream(socketOutputStream);
+        objectOut.flush();
+        objectOut.writeObject(toSend);
+        objectOut.flush();
+    }
 
-	/**
-	 * Closes the connection to the client.
-	 * 
-	 * @throws IOException
-	 */
-	public void endConnection() throws IOException
-	{
-		if (socketInputStream != null)
-		{
-			socketInputStream.close();
-			socketInputStream = null;
-		}
-		if (socketOutputStream != null)
-		{
-			socketOutputStream.close();
-			socketOutputStream = null;
-		}
-	}
+    /**
+     * Closes the connection to the client.
+     * 
+     * @throws IOException
+     */
+    public void endConnection() throws IOException {
+        if (socketInputStream != null) {
+            socketInputStream.close();
+            socketInputStream = null;
+        }
+        if (socketOutputStream != null) {
+            socketOutputStream.close();
+            socketOutputStream = null;
+        }
+    }
 }
