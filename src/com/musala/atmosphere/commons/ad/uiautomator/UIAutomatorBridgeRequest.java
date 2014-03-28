@@ -27,5 +27,9 @@ public enum UIAutomatorBridgeRequest implements RequestType {
     /**
      * Used for UI element clearing.
      */
-    CLEAR_FIELD;
+    CLEAR_FIELD,
+    /**
+     * Used for UI element swiping.
+     */
+    ELEMENT_SWIPE;
 }
