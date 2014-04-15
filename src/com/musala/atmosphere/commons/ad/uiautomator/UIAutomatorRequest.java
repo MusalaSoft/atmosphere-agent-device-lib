@@ -4,12 +4,13 @@ import com.musala.atmosphere.commons.ad.RequestType;
 import com.musala.atmosphere.commons.gesture.Timeline;
 
 /**
- * Enumerators that define the type of action that is requested from the ATMOSPHERE UIAutomator bridge.
+ * Enumerators that define the type of action that is requested from the ATMOSPHERE UIAutomator-based on-device
+ * component.
  * 
  * @author yordan.petrov
  * 
  */
-public enum UIAutomatorBridgeRequest implements RequestType {
+public enum UIAutomatorRequest implements RequestType {
     /**
      * Used in order to validate the bridge. The bridge should return this object back as a response.
      */
@@ -32,4 +33,5 @@ public enum UIAutomatorBridgeRequest implements RequestType {
      * Used for UI element swiping.
      */
     ELEMENT_SWIPE;
+
 }
