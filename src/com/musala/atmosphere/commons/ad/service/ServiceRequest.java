@@ -53,5 +53,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Sent to request an application launch on the device.
      */
-    START_APP;
+    START_APP,
+    /**
+     * Sent to request the awake status of the device.
+     */
+    GET_AWAKE_STATUS;
 }
