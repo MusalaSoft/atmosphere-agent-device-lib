@@ -30,6 +30,10 @@ public enum UIAutomatorRequest implements RequestType {
      */
     CLEAR_FIELD,
     /**
+     * Used for waiting a given UI element to appear on the screen.
+     */
+    WAIT_FOR_EXISTS,
+    /**
      * Used for UI element swiping.
      */
     ELEMENT_SWIPE;
