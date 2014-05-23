@@ -36,6 +36,14 @@ public enum UIAutomatorRequest implements RequestType {
     /**
      * Used for UI element swiping.
      */
-    ELEMENT_SWIPE;
+    ELEMENT_SWIPE,
+    /**
+     * Used for scrolling to end, beginning, forward and backward.
+     */
+    SCROLL_TO_DIRECTION,
+    /**
+     * Used for scrolling into view and in particular scrolling to text.
+     */
+    SCROLL_INTO_VIEW;
 
 }
