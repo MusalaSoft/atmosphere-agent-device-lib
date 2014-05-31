@@ -57,5 +57,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Sent to request the awake status of the device.
      */
-    GET_AWAKE_STATUS;
+    GET_AWAKE_STATUS,
+    /**
+     * Used to check if the device has camera available.
+     */
+    GET_CAMERA_AVAILABILITY;
 }
