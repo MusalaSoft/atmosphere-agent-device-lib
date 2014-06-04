@@ -34,6 +34,10 @@ public enum UIAutomatorRequest implements RequestType {
      */
     WAIT_FOR_EXISTS,
     /**
+     * Used for sleeping the device until a screen update occurs or the request times out.
+     */
+    WAIT_FOR_WINDOW_UPDATE,
+    /**
      * Used for UI element swiping.
      */
     ELEMENT_SWIPE,
