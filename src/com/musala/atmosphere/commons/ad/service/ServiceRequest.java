@@ -61,5 +61,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to check if the device has camera available.
      */
-    GET_CAMERA_AVAILABILITY;
+    GET_CAMERA_AVAILABILITY,
+    /**
+     * Used to request if process is running on the device
+     */
+    GET_PROCESS_RUNNING;
 }
