@@ -8,14 +8,13 @@ package com.musala.atmosphere.commons.ad;
  * @param <T>
  *        - the {@link RequestType} of the {@link Request} objects that this class will handle.
  */
-public interface RequestHandler<T extends RequestType>
-{
-	/**
-	 * Handles a {@link Request} object.
-	 * 
-	 * @param request
-	 *        - the request to be handled by this handler class.
-	 * @return the request handling result.
-	 */
-	public Object handle(Request<T> request);
+public interface RequestHandler<T extends RequestType> {
+    /**
+     * Handles a {@link Request} object.
+     * 
+     * @param request
+     *        - the request to be handled by this handler class.
+     * @return the request handling result.
+     */
+    public Object handle(Request<T> request);
 }

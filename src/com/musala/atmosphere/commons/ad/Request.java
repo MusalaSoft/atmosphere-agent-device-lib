@@ -8,58 +8,52 @@ import java.io.Serializable;
  * @author yordan.petrov
  * 
  */
-public class Request<T extends RequestType> implements Serializable
-{
-	private static final long serialVersionUID = -6559730035384903267L;
+public class Request<T extends RequestType> implements Serializable {
+    private static final long serialVersionUID = -6559730035384903267L;
 
-	private T requestType;
+    private T requestType;
 
-	private Object[] arguments;
+    private Object[] arguments;
 
-	public Request(T requestType)
-	{
-		this.requestType = requestType;
-	}
+    public Request(T requestType) {
+        this.requestType = requestType;
+    }
 
-	/**
-	 * Gets the type of the request.
-	 * 
-	 * @return the type of the request.
-	 */
-	public T getType()
-	{
-		return requestType;
-	}
+    /**
+     * Gets the type of the request.
+     * 
+     * @return the type of the request.
+     */
+    public T getType() {
+        return requestType;
+    }
 
-	/**
-	 * Sets the type of the request.
-	 * 
-	 * @param requestType
-	 *        - the desired request type.
-	 */
-	public void setAction(T requestType)
-	{
-		this.requestType = requestType;
-	}
+    /**
+     * Sets the type of the request.
+     * 
+     * @param requestType
+     *        - the desired request type.
+     */
+    public void setAction(T requestType) {
+        this.requestType = requestType;
+    }
 
-	/**
-	 * Gets the arguments of the request.
-	 * 
-	 * @return the arguments of the request.
-	 */
-	public Object[] getArguments()
-	{
-		return arguments;
-	}
+    /**
+     * Gets the arguments of the request.
+     * 
+     * @return the arguments of the request.
+     */
+    public Object[] getArguments() {
+        return arguments;
+    }
 
-	/**
-	 * Sets the arguments of the request.
-	 * 
-	 * @param arguments
-	 *        - the desired request arguments.
-	 */
-	public void setArguments(Object[] arguments)
-	{
-		this.arguments = arguments;
-	}
+    /**
+     * Sets the arguments of the request.
+     * 
+     * @param arguments
+     *        - the desired request arguments.
+     */
+    public void setArguments(Object[] arguments) {
+        this.arguments = arguments;
+    }
 }

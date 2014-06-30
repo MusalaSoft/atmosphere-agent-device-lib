@@ -6,7 +6,6 @@ package com.musala.atmosphere.commons.ad.service;
  * @author yordan.petrov
  * 
  */
-public class ServiceConstants
-{
-	public static final int SERVICE_PORT = 6749;
+public class ServiceConstants {
+    public static final int SERVICE_PORT = 6749;
 }

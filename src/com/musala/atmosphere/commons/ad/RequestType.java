@@ -8,6 +8,5 @@ import java.io.Serializable;
  * @author georgi.gaydarov
  * 
  */
-public interface RequestType extends Serializable
-{
+public interface RequestType extends Serializable {
 }

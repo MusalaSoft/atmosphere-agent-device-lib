@@ -9,10 +9,10 @@ import java.util.HashMap;
  * 
  */
 public class Base64Service {
-    private static final char[] encryptionMap = new char[] {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
-            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2',
-            '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    private static final char[] encryptionMap = new char[] {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+            'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+            'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1',
+            '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
     private static HashMap<Character, Byte> decryptionMap;
     static {
@@ -45,8 +45,8 @@ public class Base64Service {
     private static byte[] decodeTriplet(char[] enc) {
         byte[] result = new byte[3 - (enc[2] == '=' ? 1 : 0) - (enc[3] == '=' ? 1 : 0)];
 
-        int sequence = decryptionMap.get(enc[0]) << 18 | decryptionMap.get(enc[1]) << 12 | decryptionMap.get(enc[2]) << 6
-                | decryptionMap.get(enc[3]);
+        int sequence = decryptionMap.get(enc[0]) << 18 | decryptionMap.get(enc[1]) << 12
+                | decryptionMap.get(enc[2]) << 6 | decryptionMap.get(enc[3]);
 
         switch (result.length) {
             case 3:
