@@ -52,6 +52,11 @@ public enum UIAutomatorRequest implements RequestType {
     /**
      * Used for scrolling into view and in particular scrolling to text.
      */
-    SCROLL_INTO_VIEW;
+    SCROLL_INTO_VIEW,
+
+    /**
+     * Used for opening the notification bar on the device.
+     */
+    OPEN_NOTIFICATION_BAR;
 
 }
