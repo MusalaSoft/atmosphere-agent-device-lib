@@ -57,6 +57,11 @@ public enum UIAutomatorRequest implements RequestType {
     /**
      * Used for opening the notification bar on the device.
      */
-    OPEN_NOTIFICATION_BAR;
+    OPEN_NOTIFICATION_BAR,
+
+    /**
+     * Used for opening the quick settings on the device.
+     */
+    OPEN_QUICK_SETTINGS;
 
 }
