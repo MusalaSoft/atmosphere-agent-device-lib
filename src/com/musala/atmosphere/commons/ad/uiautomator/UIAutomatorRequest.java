@@ -53,15 +53,18 @@ public enum UIAutomatorRequest implements RequestType {
      * Used for scrolling into view and in particular scrolling to text.
      */
     SCROLL_INTO_VIEW,
-
     /**
      * Used for opening the notification bar on the device.
      */
     OPEN_NOTIFICATION_BAR,
-
     /**
      * Used for opening the quick settings on the device.
      */
-    OPEN_QUICK_SETTINGS;
+    OPEN_QUICK_SETTINGS,
+    /**
+     * Used for time picker interactions without additional parameters.
+     * 
+     */
+    TIME_PICKER_INTERACTION;
 
 }
