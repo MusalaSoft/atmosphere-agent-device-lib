@@ -60,11 +60,5 @@ public enum UIAutomatorRequest implements RequestType {
     /**
      * Used for opening the quick settings on the device.
      */
-    OPEN_QUICK_SETTINGS,
-    /**
-     * Used for time picker interactions without additional parameters.
-     * 
-     */
-    TIME_PICKER_INTERACTION;
-
+    OPEN_QUICK_SETTINGS;
 }
