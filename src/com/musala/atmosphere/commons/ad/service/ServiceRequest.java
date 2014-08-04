@@ -65,5 +65,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to request if process is running on the device
      */
-    GET_PROCESS_RUNNING;
+    GET_PROCESS_RUNNING,
+    /**
+     * Used to request mocking of device's location.
+     */
+    MOCK_LOCATION;
 }
