@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 
 /**
  * A helper class that represents a socket server that specializes in object sending and receiving.
@@ -15,14 +16,18 @@ import java.net.Socket;
  * 
  */
 class SocketObjectServer {
+    private static final int SOCKET_SERVER_IDLE_TIMEOUT = 10000;
+
     private final ServerSocket serverSocket;
 
     private InputStream socketInputStream;
 
     private OutputStream socketOutputStream;
 
+    private Socket clientSocket;
+
     /**
-     * Starts a new server on a specified port.
+     * Starts a new server on a specified port and sets default timeout for <i>accept()</i> operation.
      * 
      * @param onPort
      *        - the port on which the server will listen.
@@ -30,23 +35,27 @@ class SocketObjectServer {
      */
     public SocketObjectServer(int onPort) throws IOException {
         serverSocket = new ServerSocket(onPort);
+        serverSocket.setSoTimeout(SOCKET_SERVER_IDLE_TIMEOUT);
     }
 
     /**
-     * Blocks until a connection from a client is established.
+     * Blocks until a connection from a client is established or the
+     * {@link SocketObjectServer#SOCKET_SERVER_IDLE_TIMEOUT} is reached.
      * 
      * @throws IOException
+     * @throws SocketTimeoutException
+     *         when the default waiting timeout for accept() method is reached.
      */
     public void acceptConnection() throws IOException {
-        Socket socket = serverSocket.accept();
-        socketInputStream = socket.getInputStream();
-        socketOutputStream = socket.getOutputStream();
+        clientSocket = serverSocket.accept();
+        socketInputStream = clientSocket.getInputStream();
+        socketOutputStream = clientSocket.getOutputStream();
     }
 
     /**
      * Fetches the next object that the client sends.
      * 
-     * @return the fetched object.
+     * @return an object that was sent by a connected client.
      * @throws IOException
      * @throws ClassNotFoundException
      */
@@ -60,14 +69,12 @@ class SocketObjectServer {
      * Sends an object to the client.
      * 
      * @param toSend
-     *        - the object to be sent.
+     *        - serializable object to be sent to the client.
      * @throws IOException
      */
     protected void sendObject(Object toSend) throws IOException {
         ObjectOutputStream objectOut = new ObjectOutputStream(socketOutputStream);
-        objectOut.flush();
         objectOut.writeObject(toSend);
-        objectOut.flush();
     }
 
     /**
@@ -83,6 +90,22 @@ class SocketObjectServer {
         if (socketOutputStream != null) {
             socketOutputStream.close();
             socketOutputStream = null;
+        }
+        if (clientSocket != null) {
+            clientSocket.close();
+        }
+    }
+
+    /**
+     * Closes client connection and destroys all resources, allocated by the socket server.
+     * 
+     * @throws IOException
+     */
+    public void stop() throws IOException {
+        endConnection();
+
+        if (serverSocket != null) {
+            serverSocket.close();
         }
     }
 }
