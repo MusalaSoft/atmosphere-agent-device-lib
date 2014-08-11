@@ -46,6 +46,11 @@ public enum ServiceRequest implements RequestType {
     GET_ACCELERATION_READINGS,
 
     /**
+     * Sent to request the readings from the proximity sensor of the device.
+     */
+    GET_PROXIMITY_READINGS,
+
+    /**
      * Sent to request the information telephony services on the device.
      */
     GET_TELEPHONY_INFORMATION,
