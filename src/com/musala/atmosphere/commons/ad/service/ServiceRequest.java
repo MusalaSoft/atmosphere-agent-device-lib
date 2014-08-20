@@ -74,5 +74,21 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to request mocking of device's location.
      */
-    MOCK_LOCATION;
+    MOCK_LOCATION,
+    /**
+     * Used to request disabling and re-enabling of the keyguard.
+     */
+    SET_KEYGUARD,
+    /**
+     * Used to request moving a given task to the foreground on the device.
+     */
+    BRING_TASK_TO_FRONT,
+    /**
+     * Used to request the ids of all running tasks on the device.
+     */
+    GET_RUNNING_TASK_IDS,
+    /**
+     * Used to wait and check if task on the device is successfully updated to given position.
+     */
+    WAIT_FOR_TASKS_UPDATE;
 }
