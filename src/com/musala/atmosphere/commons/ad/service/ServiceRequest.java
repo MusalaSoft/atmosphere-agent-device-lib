@@ -76,6 +76,10 @@ public enum ServiceRequest implements RequestType {
      */
     MOCK_LOCATION,
     /**
+     * Used to disable mocking location for a given provider.
+     */
+    DISABLE_MOCK_LOCATION,
+    /**
      * Used to request disabling and re-enabling of the keyguard.
      */
     SET_KEYGUARD,
