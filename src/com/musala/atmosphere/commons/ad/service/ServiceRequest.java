@@ -94,5 +94,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to wait and check if task on the device is successfully updated to given position.
      */
-    WAIT_FOR_TASKS_UPDATE;
+    WAIT_FOR_TASKS_UPDATE,
+    /**
+     * Used to broadcast an intent to all interested receivers on the device.
+     */
+    SEND_BROADCAST;
 }
