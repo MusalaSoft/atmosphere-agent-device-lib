@@ -98,5 +98,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to broadcast an intent to all interested receivers on the device.
      */
-    SEND_BROADCAST;
+    SEND_BROADCAST,
+    /**
+     * Used to check the lock state of the device.
+     */
+    IS_LOCKED;
 }
