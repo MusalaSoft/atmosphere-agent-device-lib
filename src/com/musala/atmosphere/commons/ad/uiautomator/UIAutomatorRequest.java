@@ -19,46 +19,65 @@ public enum UIAutomatorRequest implements RequestType {
     /**
      * Returned by the bridge when the the request does not require a particular response.
      */
-    ANY_RESPONSE,
+    VOID_RESPONSE,
 
     /**
      * Plays the gesture, described in the passed {@link Timeline} list.
      */
     PLAY_GESTURE,
+
     /**
      * Used for UI element clearing.
      */
     CLEAR_FIELD,
+
     /**
      * Used for waiting a given UI element to appear on the screen.
      */
     WAIT_FOR_EXISTS,
+
     /**
      * Used for waiting a given UI element to disappear on the screen.
      */
     WAIT_UNTIL_GONE,
+
     /**
      * Used for sleeping the device until a screen update occurs or the request times out.
      */
     WAIT_FOR_WINDOW_UPDATE,
+
     /**
      * Used for UI element swiping.
      */
     ELEMENT_SWIPE,
+
     /**
      * Used for scrolling to end, beginning, forward and backward.
      */
     SCROLL_TO_DIRECTION,
+
     /**
      * Used for scrolling into view and in particular scrolling to text.
      */
     SCROLL_INTO_VIEW,
+
     /**
      * Used for opening the notification bar on the device.
      */
     OPEN_NOTIFICATION_BAR,
+
     /**
      * Used for opening the quick settings on the device.
      */
-    OPEN_QUICK_SETTINGS;
+    OPEN_QUICK_SETTINGS,
+
+    /**
+     * Used to request XML dump of the current screen.
+     */
+    GET_UI_DUMP_XML,
+
+    /**
+     * Used to stop the component running on the device.
+     */
+    STOP;
 }

@@ -1,4 +1,4 @@
-package com.musala.atmosphere.commons.ad;
+package com.musala.atmosphere.commons.ad.socket;
 
 import java.io.IOException;
 import java.io.InputStream;

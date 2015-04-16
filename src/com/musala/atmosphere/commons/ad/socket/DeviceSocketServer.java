@@ -1,6 +1,10 @@
-package com.musala.atmosphere.commons.ad;
+package com.musala.atmosphere.commons.ad.socket;
 
 import java.io.IOException;
+
+import com.musala.atmosphere.commons.ad.Request;
+import com.musala.atmosphere.commons.ad.RequestHandler;
+import com.musala.atmosphere.commons.ad.RequestType;
 
 /**
  * Class for starting a local socket server that will handle requests of some {@link RequestType}.
@@ -12,7 +16,7 @@ public class DeviceSocketServer<T extends RequestType> extends SocketObjectServe
     private RequestHandler<T> requestHandler;
 
     /**
-     * Creates a new socket server that handles requests with a specific {@link RequestHandler} on given port.
+     * Creates a new socket server that handles requests with a specific {@link RequestHandler} on a given port.
      * 
      * @param requestHandler
      *        - the {@link RequestHandler} that will be used for request handling.
@@ -33,6 +37,7 @@ public class DeviceSocketServer<T extends RequestType> extends SocketObjectServe
      * @throws IOException
      * @throws ClassNotFoundException
      */
+    @SuppressWarnings("unchecked")
     public Request<T> handle() throws IOException, ClassNotFoundException {
         Request<T> request = (Request<T>) receiveObject();
         Object response = requestHandler.handle(request);
