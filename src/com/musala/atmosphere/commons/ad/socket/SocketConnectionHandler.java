@@ -3,7 +3,7 @@ package com.musala.atmosphere.commons.ad.socket;
 import java.io.IOException;
 import java.net.SocketException;
 
-import android.util.Log;
+import org.apache.log4j.Logger;
 
 import com.musala.atmosphere.commons.ad.Request;
 import com.musala.atmosphere.commons.ad.RequestHandler;
@@ -18,6 +18,8 @@ import com.musala.atmosphere.commons.ad.RequestType;
  *        - the type of the requests to be handled
  */
 public class SocketConnectionHandler<T extends RequestType> implements Runnable {
+    private static final Logger LOGGER = Logger.getLogger(SocketConnectionHandler.class);
+
     public static final String SOCKET_SERVER_TAG = SocketConnectionHandler.class.getSimpleName();
 
     private DeviceSocketServer<T> socketServer;
@@ -46,27 +48,27 @@ public class SocketConnectionHandler<T extends RequestType> implements Runnable 
 
         while (isRunning) {
             try {
-                Log.i(SOCKET_SERVER_TAG, "Waiting for connection.");
+                LOGGER.info("Waiting for connection...");
                 socketServer.acceptConnection();
 
-                Log.i(SOCKET_SERVER_TAG, "Connection accepted, receiving request.");
+                LOGGER.info("Connection accepted, receiving request...");
                 Request<T> request = socketServer.handle();
 
-                Log.i(SOCKET_SERVER_TAG, "Handled request '" + request.getType() + "'.");
+                LOGGER.info("Handled request '" + request.getType() + "'.");
             } catch (SocketException se) {
-                Log.d(SOCKET_SERVER_TAG, "Error in connection : " + se.getMessage());
+                LOGGER.error("Error in connection.", se);
             } catch (IOException ioe) {
-                Log.d(SOCKET_SERVER_TAG, "Error in I/O: " + ioe.getMessage());
+                LOGGER.error("Error in I/O.", ioe);
             } catch (ClassNotFoundException e) {
-                Log.d(SOCKET_SERVER_TAG, "Unsupported request sent.", e);
+                LOGGER.error("Unsupported request sent.", e);
             }
 
             // Closing the connection in a separate block
             try {
                 socketServer.endConnection();
-                Log.i(SOCKET_SERVER_TAG, "Connection closed.");
+                LOGGER.info("Connection closed.");
             } catch (IOException e) {
-                Log.d(SOCKET_SERVER_TAG, "Error in I/O: " + e.getMessage(), e);
+                LOGGER.error("Error in I/O while closing connection.", e);
             }
         }
     }

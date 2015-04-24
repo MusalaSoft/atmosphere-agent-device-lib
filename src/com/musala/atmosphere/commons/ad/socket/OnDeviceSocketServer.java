@@ -2,7 +2,7 @@ package com.musala.atmosphere.commons.ad.socket;
 
 import java.io.IOException;
 
-import android.util.Log;
+import org.apache.log4j.Logger;
 
 import com.musala.atmosphere.commons.ad.RequestHandler;
 import com.musala.atmosphere.commons.ad.RequestType;
@@ -15,6 +15,8 @@ import com.musala.atmosphere.commons.ad.RequestType;
  * 
  */
 public class OnDeviceSocketServer<T extends RequestType> {
+    private static final Logger LOGGER = Logger.getLogger(OnDeviceSocketServer.class);
+
     public static final String SOCKET_SERVER_TAG = OnDeviceSocketServer.class.getSimpleName();
 
     private static final int SOCKET_THREAD_KILL_TIMEOUT = 1000;
@@ -60,9 +62,9 @@ public class OnDeviceSocketServer<T extends RequestType> {
         if (!isNetworkThreadRunning()) {
             socketServerThread = new Thread(connectionHandler);
             socketServerThread.start();
-            Log.i(SOCKET_SERVER_TAG, "Started network thread.");
+            LOGGER.info("Started network thread.");
         } else {
-            Log.e(SOCKET_SERVER_TAG, "Failed to start network thread.");
+            LOGGER.error("Network thread start requested, but it's already running.");
         }
     }
 
@@ -71,26 +73,25 @@ public class OnDeviceSocketServer<T extends RequestType> {
      */
     public void terminate() {
         if (!isNetworkThreadRunning()) {
-            Log.w(SOCKET_SERVER_TAG, "Could not terminate network thread. Network thread is not running.");
+            LOGGER.warn("Could not terminate network thread. Network thread is not running.");
             return;
         }
 
-        Log.wtf(SOCKET_SERVER_TAG, "Stopping socket server...");
+        LOGGER.info("Stopping socket server...");
         connectionHandler.terminate();
 
         try {
             socketServerThread.join(SOCKET_THREAD_KILL_TIMEOUT);
-            Log.d(SOCKET_SERVER_TAG, "Network thread should be stopped now...");
+            LOGGER.debug("Network thread should be stopped now...");
         } catch (InterruptedException e) {
-            Log.d(SOCKET_SERVER_TAG, "Error stopping network thread...", e);
+            LOGGER.debug("Error stopping network thread...", e);
         }
 
         try {
             connectionHandler.terminateSocketServer();
-            Log.i(SOCKET_SERVER_TAG, "Socket connection stopped successfully!");
+            LOGGER.info("Socket connection stopped successfully!");
         } catch (IOException e) {
-            Log.e(SOCKET_SERVER_TAG, "Could not close opened connection.");
+            LOGGER.error("Could not close opened connection.", e);
         }
     }
-
 }
