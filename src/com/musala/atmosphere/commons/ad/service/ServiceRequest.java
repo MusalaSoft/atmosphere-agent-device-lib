@@ -100,6 +100,10 @@ public enum ServiceRequest implements RequestType {
      */
     SEND_BROADCAST,
     /**
+     * Used to request the total RAM of the device.
+     */
+    GET_TOTAL_RAM,
+    /**
      * Used to check the lock state of the device.
      */
     IS_LOCKED;
