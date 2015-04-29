@@ -77,6 +77,11 @@ public enum UIAutomatorRequest implements RequestType {
     GET_UI_DUMP_XML,
 
     /**
+     * Used to request building a tree representation of the current screen.
+     */
+    GET_UI_TREE,
+
+    /**
      * Used to stop the component running on the device.
      */
     STOP;
