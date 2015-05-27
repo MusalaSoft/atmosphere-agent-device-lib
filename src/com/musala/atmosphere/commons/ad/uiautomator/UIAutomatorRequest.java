@@ -82,6 +82,11 @@ public enum UIAutomatorRequest implements RequestType {
     GET_UI_TREE,
 
     /**
+     * Used to request all UI elements that are matching the given selector.
+     */
+    GET_UI_ELEMENTS,
+
+    /**
      * Used to stop the component running on the device.
      */
     STOP;
