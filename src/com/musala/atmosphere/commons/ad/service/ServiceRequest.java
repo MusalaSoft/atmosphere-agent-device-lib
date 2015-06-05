@@ -106,5 +106,13 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to check the lock state of the device.
      */
-    IS_LOCKED;
+    IS_LOCKED,
+    /**
+     * Used to open the location settings activity of the device.
+     */
+    OPEN_LOCATION_SETTINGS,
+    /**
+     * Used to check the GPS location state of the device.
+     */
+    IS_GPS_LOCATION_ENABLED;
 }
