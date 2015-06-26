@@ -114,5 +114,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to check the GPS location state of the device.
      */
-    IS_GPS_LOCATION_ENABLED;
+    IS_GPS_LOCATION_ENABLED,
+    /**
+     * Used to show the tap locations on the current device screen.
+     */
+    SHOW_TAP_LOCATION;
 }
