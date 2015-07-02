@@ -6,9 +6,9 @@ import com.musala.atmosphere.commons.gesture.Timeline;
 /**
  * Enumerators that define the type of action that is requested from the ATMOSPHERE UIAutomator-based on-device
  * component.
- * 
+ *
  * @author yordan.petrov
- * 
+ *
  */
 public enum UIAutomatorRequest implements RequestType {
     /**
@@ -82,7 +82,22 @@ public enum UIAutomatorRequest implements RequestType {
     GET_UI_TREE,
 
     /**
+     * Used to request all UI elements that are matching the given selector.
+     */
+    GET_UI_ELEMENTS,
+
+    /**
      * Used to stop the component running on the device.
      */
-    STOP;
+    STOP,
+
+    /**
+     * Used to request all child UI elements that are matching the given selector.
+     */
+    GET_CHILDREN,
+
+    /**
+     * Used to request validation of element presence on the screen.
+     */
+    CHECK_ELEMENT_PRESENCE;
 }
