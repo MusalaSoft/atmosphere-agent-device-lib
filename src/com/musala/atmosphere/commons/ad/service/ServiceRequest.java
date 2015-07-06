@@ -112,6 +112,10 @@ public enum ServiceRequest implements RequestType {
      */
     OPEN_LOCATION_SETTINGS,
     /**
+     * Checks if any audio is currently playing on the device.
+     */
+    IS_AUDIO_PLAYING,
+    /**
      * Used to check the GPS location state of the device.
      */
     IS_GPS_LOCATION_ENABLED,
