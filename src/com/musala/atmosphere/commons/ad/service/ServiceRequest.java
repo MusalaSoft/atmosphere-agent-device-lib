@@ -122,5 +122,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to show the tap locations on the current device screen.
      */
-    SHOW_TAP_LOCATION;
+    SHOW_TAP_LOCATION,
+    /**
+     * Used to stop a given background process.
+     */
+    STOP_BACKGROUND_PROCESS;
 }
