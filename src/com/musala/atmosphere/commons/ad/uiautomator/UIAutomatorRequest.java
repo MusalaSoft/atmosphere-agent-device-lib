@@ -85,6 +85,11 @@ public enum UIAutomatorRequest implements RequestType {
      * Used to request all UI elements that are matching the given selector.
      */
     GET_UI_ELEMENTS,
+    
+    /**
+     * Used to request the text of the last detected toast message.
+     */
+    GET_LAST_TOAST,
 
     /**
      * Used to stop the component running on the device.
