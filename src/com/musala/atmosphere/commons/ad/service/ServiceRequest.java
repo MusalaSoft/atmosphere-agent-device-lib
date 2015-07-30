@@ -126,5 +126,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used to stop a given background process.
      */
-    STOP_BACKGROUND_PROCESS;
+    STOP_BACKGROUND_PROCESS,
+    /**
+     * Used for retrieving token for the device from the Augmented Traffic Control tool.
+     */
+    RETRIEVE_TOKEN;
 }
