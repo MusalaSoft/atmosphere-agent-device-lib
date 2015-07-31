@@ -130,5 +130,13 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used for retrieving token for the device from the Augmented Traffic Control tool.
      */
-    RETRIEVE_TOKEN;
+    RETRIEVE_TOKEN,
+    /**
+     * Used for modifying WiFi connection properties for the device from the Augmented Traffic Control tool.
+     */
+    SHAPE_DEVICE,
+    /**
+     * Used for restoring WiFi connection properties for the device from the Augmented Traffic Control tool.
+     */
+    UNSHAPE_DEVICE;
 }
