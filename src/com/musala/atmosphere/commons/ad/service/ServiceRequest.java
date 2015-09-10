@@ -138,5 +138,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used for restoring WiFi connection properties for the device from the Augmented Traffic Control tool.
      */
-    UNSHAPE_DEVICE;
+    UNSHAPE_DEVICE,
+    /**
+     * Used for getting the device's free disk space.
+     */
+    SHOW_AVAILABLE_DISK_SPACE;
 }
