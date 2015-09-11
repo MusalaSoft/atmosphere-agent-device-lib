@@ -142,5 +142,5 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used for getting the device's free disk space.
      */
-    SHOW_AVAILABLE_DISK_SPACE;
+    GET_AVAILABLE_DISK_SPACE;
 }
