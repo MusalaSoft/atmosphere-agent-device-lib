@@ -108,5 +108,9 @@ public enum UIAutomatorRequest implements RequestType {
     /**
      * Sends request for executing XPath queries when searching elements on the screen.
      */
-    EXECUTE_XPATH_QUERY;
+    EXECUTE_XPATH_QUERY,
+    /**
+     * Sends request for executing XPath queries when searching element's children on the screen.
+     */
+    EXECUTE_XPATH_QUERY_ON_LOCAL_ROOT;
 }
