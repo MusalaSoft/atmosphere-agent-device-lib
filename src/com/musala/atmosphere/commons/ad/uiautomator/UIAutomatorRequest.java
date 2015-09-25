@@ -85,7 +85,7 @@ public enum UIAutomatorRequest implements RequestType {
      * Used to request all UI elements that are matching the given selector.
      */
     GET_UI_ELEMENTS,
-    
+
     /**
      * Used to request the text of the last detected toast message.
      */
@@ -104,5 +104,13 @@ public enum UIAutomatorRequest implements RequestType {
     /**
      * Used to request validation of element presence on the screen.
      */
-    CHECK_ELEMENT_PRESENCE;
+    CHECK_ELEMENT_PRESENCE,
+    /**
+     * Sends request for executing XPath queries when searching elements on the screen.
+     */
+    EXECUTE_XPATH_QUERY,
+    /**
+     * Sends request for executing XPath queries when searching element's children on the screen.
+     */
+    EXECUTE_XPATH_QUERY_ON_LOCAL_ROOT;
 }
