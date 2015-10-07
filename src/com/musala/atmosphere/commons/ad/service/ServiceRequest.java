@@ -5,9 +5,9 @@ import com.musala.atmosphere.commons.ad.RequestType;
 
 /**
  * Enumerators that define the type of action that is requested to the ATMOSPHERE Service.
- * 
+ *
  * @author yordan.petrov
- * 
+ *
  */
 public enum ServiceRequest implements RequestType {
     /**
@@ -142,5 +142,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used for getting the device's free disk space.
      */
-    GET_AVAILABLE_DISK_SPACE;
+    GET_AVAILABLE_DISK_SPACE,
+    /**
+     * Used for getting the external storage for this device which is set in the system environment.
+     */
+    GET_EXTERNAL_STORAGE;
 }
