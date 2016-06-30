@@ -6,7 +6,7 @@ targetCompatibility = 1.6
 version = '0.0.1'
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Atmosphere Agent-Device Commons',
+        attributes 'Implementation-Title': 'Atmosphere Agent-Device Lib',
                    'Implementation-Version': version
     }
 }
@@ -22,9 +22,9 @@ dependencies {
 
 publishing {
     publications {
-        atmosphereADCommons(MavenPublication) {
+        atmosphereAgentDeviceLib(MavenPublication) {
             groupId 'com.musala.atmosphere'
-            artifactId 'atmosphere-ad-commons'
+            artifactId 'atmosphere-agent-device-lib'
             version version
 
             from components.java
