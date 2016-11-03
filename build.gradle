@@ -12,8 +12,9 @@ jar {
 }
 
 repositories {
-    mavenCentral()
     mavenLocal()
+    jcenter()
+    mavenCentral()
 }
 
 dependencies {
