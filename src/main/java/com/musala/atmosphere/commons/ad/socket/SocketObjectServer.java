@@ -11,9 +11,9 @@ import java.net.SocketTimeoutException;
 
 /**
  * A helper class that represents a socket server that specializes in object sending and receiving.
- * 
+ *
  * @author georgi.gaydarov
- * 
+ *
  */
 class SocketObjectServer {
     private static final int SOCKET_SERVER_IDLE_TIMEOUT = 10000;
@@ -28,7 +28,7 @@ class SocketObjectServer {
 
     /**
      * Starts a new server on a specified port and sets default timeout for <i>accept()</i> operation.
-     * 
+     *
      * @param onPort
      *        - the port on which the server will listen.
      * @throws IOException
@@ -41,8 +41,9 @@ class SocketObjectServer {
     /**
      * Blocks until a connection from a client is established or the
      * {@link SocketObjectServer#SOCKET_SERVER_IDLE_TIMEOUT} is reached.
-     * 
+     *
      * @throws IOException
+     *         if an I/O exception has occurred.
      * @throws SocketTimeoutException
      *         when the default waiting timeout for accept() method is reached.
      */
@@ -54,10 +55,12 @@ class SocketObjectServer {
 
     /**
      * Fetches the next object that the client sends.
-     * 
+     *
      * @return an object that was sent by a connected client.
      * @throws IOException
+     *         if an I/O exception has occurred.
      * @throws ClassNotFoundException
+     *         thrown when an application fails to load in a class.
      */
     protected Object receiveObject() throws IOException, ClassNotFoundException {
         ObjectInputStream objectIn = new ObjectInputStream(socketInputStream);
@@ -67,10 +70,11 @@ class SocketObjectServer {
 
     /**
      * Sends an object to the client.
-     * 
+     *
      * @param toSend
      *        - serializable object to be sent to the client.
      * @throws IOException
+     *         if an I/O exception has occurred.
      */
     protected void sendObject(Object toSend) throws IOException {
         ObjectOutputStream objectOut = new ObjectOutputStream(socketOutputStream);
@@ -79,8 +83,9 @@ class SocketObjectServer {
 
     /**
      * Closes the connection to the client.
-     * 
+     *
      * @throws IOException
+     *         if an I/O exception has occurred.
      */
     public void endConnection() throws IOException {
         if (socketInputStream != null) {
@@ -98,8 +103,9 @@ class SocketObjectServer {
 
     /**
      * Closes client connection and destroys all resources, allocated by the socket server.
-     * 
+     *
      * @throws IOException
+     *         if an I/O exception has occurred.
      */
     public void stop() throws IOException {
         endConnection();
