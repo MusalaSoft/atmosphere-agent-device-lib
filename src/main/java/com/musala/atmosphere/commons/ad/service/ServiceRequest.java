@@ -146,5 +146,9 @@ public enum ServiceRequest implements RequestType {
     /**
      * Used for getting the external storage for this device which is set in the system environment.
      */
-    GET_EXTERNAL_STORAGE;
+    GET_EXTERNAL_STORAGE,
+    /**
+     * Used to show a toast message on the device's screen.
+     */
+    SHOW_TOAST;
 }
