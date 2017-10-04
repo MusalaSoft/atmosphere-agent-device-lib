@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/MusalaSoft/atmosphere-agent-device-lib.svg?branch=master)](https://travis-ci.org/MusalaSoft/atmosphere-agent-device-lib) [ ![Download](https://api.bintray.com/packages/musala/atmosphere/atmosphere-agent-device-lib/images/download.svg) ](https://bintray.com/musala/atmosphere/atmosphere-agent-device-lib/_latestVersion)  
 See our site for better context of this readme. [Click here](http://atmosphereframework.com/)
 
 # atmosphere-agent-device-lib
